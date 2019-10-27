@@ -1,0 +1,70 @@
+<app-nav-usuario></app-nav-usuario>
+
+<div class="jumbotron">
+
+
+  <h2 class="display-3">Tickets</h2>
+  <p class="lead">Enviar Tickets al administrador.</p>
+  <hr class="my-4">
+ 
+
+<table style="width: 100%;">
+  <thead>
+    <th><h3>Enviados</h3></th>
+    <th></th>
+
+
+  </thead>
+  <tbody>
+    <tr >
+      <td style="width: 30%;">
+        <div *ngFor="let ticket of tickets">
+
+          <div   class="card text-white bg-secondary mb-3" style="max-width: 20rem;">
+            <div class="card-header"><h4>{{ticket.asunto}}</h4>{{ticket.nombre}} </div>
+              <div class="card-body">
+              
+                <p class="card-text">{{ticket.descripcion}}</p>
+              </div>
+            </div>
+        </div>
+       
+      </td>
+      <td style="width: 33%;">
+        <form class="card text-white bg-secondary mb-3" id ="login" style="width: 100%; " (ngSubmit)="enviar()" >
+          <div class="card-header"><h2>Redactar Ticket</h2></div>
+            <div class="card-body">
+        
+                <fieldset>
+        
+                  <div class="form-group">
+                    <label for="exampleInputEmail1"><h4>Asunto</h4></label>
+                    <input type="text" class="form-control" id="exampleInputEmail1"   [(ngModel)]="ticket.asunto" name="asunto"  aria-describedby="emailHelp"  #userName>
+                    
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1"><h4>Descripcion</h4></label>
+                      <textarea class="form-control" id="exampleTextarea"  [(ngModel)]="ticket.descripcion" name="descripcion"   rows="3"></textarea>
+                    
+                  </div>
+                  
+
+        
+                  
+                  <button type="submit" class="btn btn-secondary">Enviar</button>
+                </fieldset>
+               
+            </div>
+          </form>
+
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+
+
+
+    
+
+</div>

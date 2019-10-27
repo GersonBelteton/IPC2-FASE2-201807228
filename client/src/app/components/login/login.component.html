@@ -1,0 +1,107 @@
+<style>
+  #login {
+    margin-left: 22%;
+
+
+  }
+</style>
+
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="#">Ingresa o Registrate</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+    aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor01">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+
+      </li>
+      <li class="nav-item">
+
+      </li>
+      <li class="nav-item">
+
+      </li>
+      <li class="nav-item">
+
+      </li>
+    </ul>
+
+    <select  [(ngModel)]="opcion" name="opcion">
+      <option value="1">
+        Estudiante
+      </option >
+      <option value="2">
+        Auxiliar
+      </option>
+    </select>
+
+    <h4>{{opcion}}</h4>
+    <form class="form-inline my-2 my-lg-0" (ngSubmit)="redirect()">
+      <input class="form-control mr-sm-2" type="email" placeholder="Correo" [(ngModel)]="login.correo" name="correo">
+      <input class="form-control mr-sm-2" type="password" placeholder="Contrasena" [(ngModel)]="login.contrasena"
+        name="contrasena">
+      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Entrar</button>
+    </form>
+  </div>
+</nav>
+
+<div class="jumbotron">
+
+
+  <form class="card text-white bg-secondary mb-3" id="login" style="max-width: 50rem;" (ngSubmit)="registrar()">
+    <div class="card-header">
+      <h2>Registrar</h2>
+    </div>
+    <div class="card-body">
+
+      <fieldset>
+
+        <div class="form-group">
+          <label for="exampleInputEmail1">
+            <h4>Nombre</h4>
+          </label>
+          <input type="text" class="form-control" id="exampleInputEmail1" [(ngModel)]="usuario.nombre" name="nombre"
+            aria-describedby="emailHelp" #userName>
+
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">
+            <h4>Carnet</h4>
+          </label>
+          <input type="text" class="form-control" id="exampleInputPassword1" [(ngModel)]="usuario.carnet" name="carnet"
+            #password>
+        </div>
+
+        <div class="form-group">
+          <label for="exampleInputEmail1">
+            <h4>Correo electrónico</h4>
+          </label>
+          <input type="email" class="form-control" id="exampleInputEmail1" [(ngModel)]="usuario.correo" name="correo"
+            aria-describedby="emailHelp" #userName>
+
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">
+            <h4>Contraseña</h4>
+          </label>
+          <input type="password" class="form-control" id="exampleInputPassword1" [(ngModel)]="usuario.contrasena"
+            name="contrasena" #password>
+        </div>
+
+        <button type="submit" class="btn btn-secondary">Registrar</button>
+      </fieldset>
+
+    </div>
+  </form>
+
+
+
+
+
+
+</div>

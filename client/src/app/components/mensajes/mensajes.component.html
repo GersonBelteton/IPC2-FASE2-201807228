@@ -1,0 +1,95 @@
+<app-nav-auxiliar></app-nav-auxiliar>
+<div class="jumbotron">
+
+
+  <h2 class="display-3">Mensajes</h2>
+  <p class="lead">Recibir y enviar mensajes a estudiantes.</p>
+  <hr class="my-4">
+ 
+
+<table style="width: 100%;">
+
+  <thead>
+    <th><h3>Enviados</h3></th>
+    <th></th>
+    <th syle="padding-left: 25%"><h3>Recibidos</h3></th>
+
+  </thead>
+  <tbody>
+    <tr >
+      <td style="width: 30%;">
+
+        <div  *ngFor="let mensaje of mensajes" >
+          <div   *ngIf="mensaje.remitente == 'auxiliar'" class="card text-white bg-secondary mb-3" style="max-width: 20rem;">
+            <div class="card-header"><h4>{{mensaje.asunto}}</h4>{{mensaje.nombreAuxiliar}} - {{mensaje.nombre}}</div>
+              <div class="card-body">
+              
+                <p class="card-text">{{mensaje.descripcion}}</p>
+              </div>
+            </div>
+
+        </div>
+
+      </td>
+      <td style="width: 33%;">
+        <form class="card text-white bg-secondary mb-3" id ="login" style="width: 100%; " (ngSubmit)="enviar()">
+          <div class="card-header"><h2>Redactar Mensaje</h2></div>
+            <div class="card-body">
+        
+                <fieldset>
+        
+                  <div class="form-group">
+                    <label for="exampleInputEmail1"><h4>Asunto</h4></label>
+                    <input type="text" class="form-control" id="exampleInputEmail1"   [(ngModel)]="mensaje.asunto" name="asunto"  aria-describedby="emailHelp"  #userName>
+                    
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1"><h4>Descripcion</h4></label>
+                      <textarea class="form-control" id="exampleTextarea"  [(ngModel)]="mensaje.descripcion" name="descripcion"   rows="3"></textarea>
+                    
+                  </div>
+                  
+                  <label for="exampleInputPassword1"><h4>Estudiante</h4></label>
+                  <div class="form-group">
+                    <select class="custom-select" [(ngModel)]="mensaje.idEstudiante" name ="auxSelected">
+                                
+                      <option *ngFor="let estudiante of estudiantes" [value]="estudiante.idEstudiante" >{{estudiante.idEstudiante}} - {{estudiante.nombre}}</option>
+                    </select>
+                   </div>
+        
+                  
+                  <button  type="submit" class="btn btn-secondary" >Enviar</button>
+                </fieldset>
+               
+            </div>
+          </form>
+
+      </td>
+
+      <td style="width: 30%;">
+
+        <div  *ngFor="let mensaje of mensajes" style="padding-left: 25%;" >
+          <div   *ngIf="mensaje.remitente == 'estudiante'" class="card text-white bg-secondary mb-3" style="max-width: 20rem;">
+            <div class="card-header"><h4>{{mensaje.asunto}}</h4>{{mensaje.nombreAuxiliar}} - {{mensaje.nombre}}</div>
+              <div class="card-body">
+              
+                <p class="card-text">{{mensaje.descripcion}}</p>
+              </div>
+            </div>
+
+        </div>
+
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+    
+
+</div>
+
+
+
+

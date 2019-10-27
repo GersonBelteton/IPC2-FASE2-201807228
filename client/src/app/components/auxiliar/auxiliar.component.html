@@ -1,0 +1,49 @@
+<app-nav-admin></app-nav-admin>
+<div class="jumbotron">
+    <h2 class="display-3">Auxiliares</h2>
+    <p class="lead">Crear, editar y eliminar auxiliares.</p>
+    <hr class="my-4">
+    <button type="button" class="btn btn-primary btn-lg" (click)="agregar()">Agregar nuevo Auxiliar</button>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Carnet</th>
+                <th scope="col">Correo</th>
+                <th scope="col">Contraseña</th>
+                <th scope="col">Cursos</th>
+                <th scope="col"></th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr class="table-light" *ngFor="let auxiliar of auxiliares">
+                <th scope="row">{{auxiliar.idAuxiliar}}</th>
+                <td>{{auxiliar.nombreAuxiliar}}</td>
+                <td>{{auxiliar.carnet}}</td>
+                <td>{{auxiliar.correo}}</td>
+                <td>{{auxiliar.contrasena}}</td>
+                <td>
+                    <div class="form-group">
+                        <select class="custom-select" [(ngModel)]="auxiliar.codigo" name="auxSelected">
+
+                            <option *ngFor="let curso of ac" [value]="curso.codigo ">
+                                <h4 *ngIf="curso.idAuxiliar == auxiliar.idAuxiliar">{{curso.codigo}} -
+                                    {{curso.nombreCurso}}</h4>
+                            </option>
+                        </select>
+                    </div>
+
+                </td>
+
+                <td>
+                    <button class="btn btn-danger" (click)="eliminar(auxiliar.idAuxiliar)">Eliminar </button>
+                    <button type="button" class="btn btn-primary " (click)="editar(auxiliar.idAuxiliar)">Editar</button>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,37 @@
+
+<app-nav-admin></app-nav-admin>
+<div class="jumbotron">
+    <h2 class="display-3">Estudiantes</h2>
+    <p class="lead">Lista de estudiantes.</p>
+    <hr class="my-4">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Carnet</th>
+                <th scope="col">Correo</th>
+                <th scope="col">Contraseña</th>
+                <th scope="col"></th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr class="table-light" *ngFor="let estudiante of estudiantes">
+                <th scope="row">{{estudiante.idEstudiante}}</th>
+                <td>{{estudiante.nombre}}</td>
+                <td>{{estudiante.carnet}}</td>
+                <td>{{estudiante.correo}}</td>
+                <td>{{estudiante.contrasena}}</td>
+
+
+                <td>
+                  
+                    <button type="button" class="btn btn-primary " >Dar permisos de auxiliar</button>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>

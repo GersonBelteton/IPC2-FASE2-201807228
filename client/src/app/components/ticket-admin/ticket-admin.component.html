@@ -1,0 +1,42 @@
+
+<app-nav-admin></app-nav-admin>
+<div class="jumbotron">
+
+
+  <h2 class="display-3">Tickets</h2>
+  <p class="lead">Enviar Tickets al administrador.</p>
+  <hr class="my-4">
+ 
+
+<table style="width: 100%;">
+  <thead>
+    <th><h3>Tickets recibidos</h3></th>
+    <th></th>
+
+
+  </thead>
+  <tbody>
+    <tr >
+      <td style="width: 30%;">
+        <div *ngFor="let ticket of tickets">
+
+          <div   class="card text-white bg-secondary mb-3" style="max-width: 20rem;">
+            <div class="card-header"><h4>{{ticket.asunto}}</h4>{{ticket.nombre}} - {{ticket.carnet}} </div>
+              <div class="card-body">
+              
+                <p class="card-text">{{ticket.descripcion}}</p>
+              </div>
+            </div>
+        </div>
+       
+      </td>
+     
+    </tr>
+  </tbody>
+</table>
+
+
+
+    
+
+</div>
